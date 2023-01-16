@@ -56,43 +56,42 @@ public class hw4DemArray {
         arrayForCheck[4] = new int[] {11, 9, 12, 8, 2};
 
         int[][] arrayForCheck2 = new int[5][5];
-        arrayForCheck[0] = new int[] {2, 3, 5, 10, 222};
-        arrayForCheck[1] = new int[] {3, 2, 4,  6, 9};
-        arrayForCheck[2] = new int[] {5, 4, 2,  7, 12};
-        arrayForCheck[3] = new int[] {10, 6, 7, 2,  8};
-        arrayForCheck[4] = new int[] {11, 9, 12, 8, 2};
-
-
-        checkArray(arrayForCheck);
-        //checkArray(arrayForCheck2);
+        arrayForCheck2[0] = new int[] {2, 3, 5, 10, 222};
+        arrayForCheck2[1] = new int[] {3, 2, 4,  6, 9};
+        arrayForCheck2[2] = new int[] {5, 4, 2,  7, 12};
+        arrayForCheck2[3] = new int[] {10, 6, 7, 2,  8};
+        arrayForCheck2[4] = new int[] {11, 9, 12, 8, 2};
 
         for (int i = 0; i < arrayForCheck.length; i++) {
             System.out.println();
             for (int j = 0; j < arrayForCheck[i].length; j++) {
                 System.out.print(arrayForCheck[i][j] + " ");
             }
+        }
+        System.out.println("Симметричен ли массив 1?" + checkArray(arrayForCheck));
+        for (int i = 0; i < arrayForCheck2.length; i++) {
+            System.out.println();
+            for (int j = 0; j < arrayForCheck2[i].length; j++) {
+                System.out.print(arrayForCheck2[i][j] + " ");
+            }
 
         }
+        System.out.println("Симметричен ли массив 2?" + checkArray(arrayForCheck2));
     }
 
     //Task3: Проверьте, является ли двумерный массив симметричным относительно главной диагонали. Главная диагональ — та, которая идёт из левого верхнего угла двумерного массива в правый нижний.
 
 
-    public static void checkArray(int[][] array) {
-        //int count = 0;
+    public static boolean checkArray(int[][] array) {
+        boolean flag = true;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] != array[j][i]) {
-                    System.out.println("Массив не симметричный");
-                    break;
-                    //count++;
-                } else System.out.println("Массив симметричный");
-                //if (count>0) {...
-
+                    flag = false;
+                    return flag;
                 }
-                //else System.out.println("Массив симметричный");
-
-            }
+                }
+            } return flag;
         }
 
     }
